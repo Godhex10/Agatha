@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agatha's Interior Design — Interiors for a Kinder, Calmer Home</title>
+  <meta name="description" content="Agatha's Interior Design creates warm, timeless, sustainable interiors — from single-room refreshes to full home transformations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__logo">
+      <span class="preloader__main">AGATHA'S</span>
+      <span class="preloader__sub">INTERIOR DESIGN</span>
+      <span class="preloader__bar"></span>
+    </div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <p>Complimentary 30-minute consultation for new clients | In-home &amp; virtual design</p>
+      <p class="topbar__right">Beautiful, sustainable interiors for a better tomorrow</p>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <a href="#top" class="logo" aria-label="Agatha's Interior Design home">
+        <span class="logo__main">AGATHA'S</span>
+        <span class="logo__sub">INTERIOR DESIGN</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__head">
+          <span class="logo__main">AGATHA'S</span>
+          <button class="icon-btn" id="menuClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <ul class="nav__list">
+          <li><a href="#top" class="nav__link active">Home</a></li>
+          <li class="has-dropdown">
+            <button class="nav__link dropdown-toggle">Services <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="dropdown">
+              <li><a href="#services">Full-Service Design</a></li>
+              <li><a href="#services">E-Design</a></li>
+              <li><a href="#services">Room Styling</a></li>
+              <li><a href="#services">Design Consultation</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav__link dropdown-toggle">Portfolio <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="dropdown">
+              <li><a href="#spaces">Living Rooms</a></li>
+              <li><a href="#spaces">Bedrooms</a></li>
+              <li><a href="#spaces">Kitchens &amp; Dining</a></li>
+              <li><a href="#spaces">Workspaces</a></li>
+            </ul>
+          </li>
+          <li><a href="#story" class="nav__link">About</a></li>
+          <li><a href="#inspire" class="nav__link">Inspiration</a></li>
+          <li><a href="#footer" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" aria-label="Search" id="searchBtn">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn hide-sm" aria-label="Account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </button>
+        <button class="icon-btn saved-btn" aria-label="Saved ideas">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+          <span class="badge" id="savedCount">0</span>
+        </button>
+        <button class="btn btn--primary btn--sm hide-sm" data-book>Book a call</button>
+      </div>
+    </div>
+
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="search" placeholder="Search services, rooms, inspiration…" aria-label="Search the site" />
+      </div>
+    </div>
+  </header>
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero__slides" id="heroSlides">
+        <div class="hero__slide active">
+          <div class="hero__media">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2400&q=85&auto=format&fit=crop" alt="Warm, sunlit living room with a soft grey sofa and timber accents" />
+          </div>
+        </div>
+        <div class="hero__slide">
+          <div class="hero__media">
+            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=2400&q=85&auto=format&fit=crop" alt="Neutral living room with round rattan mirrors and cream boucle seating" />
+          </div>
+        </div>
+        <div class="hero__slide">
+          <div class="hero__media">
+            <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=2400&q=85&auto=format&fit=crop" alt="Calm living space with woven pendant lights and plants" />
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero__content">
+        <p class="eyebrow reveal-line"><span>Thoughtful spaces.</span><br /><span>Beautiful living.</span></p>
+        <h1 class="hero__title">
+          <span class="line"><span>Interiors for</span></span>
+          <span class="line"><span>a Kinder,</span></span>
+          <span class="line"><span>Calmer Home</span></span>
+        </h1>
+        <p class="hero__text fade-in" style="--d:.9s">Agatha's Interior Design creates warm, timeless rooms that feel like you — from a single-room refresh to a complete home transformation.</p>
+        <div class="hero__cta fade-in" style="--d:1.05s">
+          <button class="btn btn--primary magnetic" data-book>Book a consultation
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <a href="#services" class="btn btn--link">Explore services</a>
+        </div>
+        <div class="hero__stats fade-in" style="--d:1.2s">
+          <div><strong><span data-count="350">0</span>+</strong><span>Homes Designed</span></div>
+          <div><strong><span data-count="4.9" data-decimals="1">0</span> <em class="star">★</em></strong><span>Client Rating</span></div>
+          <div><strong><span data-count="12">0</span> yrs</strong><span>Design Experience</span></div>
+        </div>
+      </div>
+
+      <p class="hero__script script" aria-hidden="true">A More<br />Beautiful<br />Everyday <span class="heart">♡</span></p>
+
+      <p class="hero__hint" id="heroHint"><span class="hero__hint-dot"></span>Hover the dots to explore the design</p>
+
+      <div class="hero__controls">
+        <p class="hero__counter"><strong id="heroCurrent">01</strong> / <span id="heroTotal">03</span></p>
+        <div class="hero__progress"><span id="heroProgress"></span></div>
+        <div class="hero__arrows">
+          <button class="round-btn" id="heroPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button class="round-btn round-btn--solid" id="heroNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <a href="#features" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ============ FEATURES STRIP ============ -->
+    <section class="features" id="features">
+      <div class="container features__grid">
+        <div class="feature reveal">
+          <svg viewBox="0 0 24 24"><path d="M5 19c9 0 14-5 14-14-9 0-14 5-14 14z"/><path d="M5 19l7-7"/></svg>
+          <div><h4>Sustainable Sourcing</h4><p>Natural, long-lasting materials</p></div>
+        </div>
+        <div class="feature reveal" style="--d:.1s">
+          <svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+          <div><h4>3D Visualisation</h4><p>See your room before it's built</p></div>
+        </div>
+        <div class="feature reveal" style="--d:.2s">
+          <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg>
+          <div><h4>Unlimited Revisions</h4><p>Until it feels just right</p></div>
+        </div>
+        <div class="feature reveal" style="--d:.3s">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div><h4>Trusted Trades</h4><p>Vetted craftsmen &amp; installers</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPACES ============ -->
+    <section class="section" id="spaces">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <p class="eyebrow">Design by space</p>
+            <h2 class="section__title">Beautiful Design for Every Space</h2>
+          </div>
+          <a href="#inspire" class="link-arrow reveal">View all <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="spaces" id="spacesList"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROMO BANNERS ============ -->
+    <section class="section section--tight">
+      <div class="container promos">
+        <article class="promo reveal-img">
+          <img class="promo__img" src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1400&q=85&auto=format&fit=crop" alt="Living room with a caramel sofa, arched mirror and plants" loading="lazy" />
+          <div class="promo__body">
+            <p class="eyebrow">Featured service</p>
+            <h3>Full-Service<br />Interior Design</h3>
+            <p>Concept, sourcing and installation — handled beautifully, start to finish.</p>
+            <a href="#services" class="btn btn--primary btn--sm">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+        <article class="promo reveal-img" style="--d:.15s">
+          <img class="promo__img" src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1400&q=85&auto=format&fit=crop" alt="Layered bedroom with rattan pendant, framed art and soft linens" loading="lazy" />
+          <div class="promo__body">
+            <p class="eyebrow">Bedroom retreats</p>
+            <h3>Restful.<br />Stylish. Yours.</h3>
+            <p>Serene bedrooms designed for deeper rest and slower mornings.</p>
+            <a href="#inspire" class="btn btn--primary btn--sm">See bedrooms <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <p class="eyebrow">Design packages</p>
+            <h2 class="section__title">Our Most Loved Services</h2>
+          </div>
+          <a href="#" class="link-arrow reveal" data-book>Not sure? Ask Agatha <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="services" id="servicesList"></div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Living Rooms</span><i>✦</i><span>Bedrooms</span><i>✦</i><span>Kitchens</span><i>✦</i><span>Dining</span><i>✦</i><span>Home Offices</span><i>✦</i><span>Bathrooms</span><i>✦</i><span>Styling</span><i>✦</i>
+        <span>Living Rooms</span><i>✦</i><span>Bedrooms</span><i>✦</i><span>Kitchens</span><i>✦</i><span>Dining</span><i>✦</i><span>Home Offices</span><i>✦</i><span>Bathrooms</span><i>✦</i><span>Styling</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ STORY ============ -->
+    <section class="story" id="story">
+      <div class="story__img reveal-img">
+        <img class="parallax" data-speed="0.12" src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1600&q=85&auto=format&fit=crop" alt="Cosy living room with a linen sofa, wooden side tables and soft throws" loading="lazy" />
+      </div>
+      <div class="story__text">
+        <p class="eyebrow reveal">Meet Agatha</p>
+        <h2 class="section__title reveal" style="--d:.1s">Timeless Design<br />for Modern Life</h2>
+        <p class="reveal" style="--d:.2s">For over a decade, I've helped families turn houses into homes that feel calm, personal and effortlessly beautiful. Every project starts with listening — to how you live, what you love, and what your space is quietly asking for.</p>
+        <p class="signature script">— Agatha</p>
+        <a href="#" class="btn btn--primary btn--sm reveal" style="--d:.4s" data-book>Our story <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="story__panel">
+        <img class="parallax" data-speed="0.08" src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+        <div class="story__panel-body">
+          <h3 class="reveal">Better Homes<br />A Brighter Planet</h3>
+          <ul>
+            <li class="reveal" style="--d:.1s"><span class="ico"><svg viewBox="0 0 24 24"><path d="M5 19c9 0 14-5 14-14-9 0-14 5-14 14z"/></svg></span>Sustainably sourced pieces</li>
+            <li class="reveal" style="--d:.2s"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 10l7-7 7 7"/></svg></span>Low-VOC paints &amp; finishes</li>
+            <li class="reveal" style="--d:.3s"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span>Designed to last decades</li>
+            <li class="reveal" style="--d:.4s"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span>Local, ethical makers</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VALUES ============ -->
+    <section class="values">
+      <div class="container values__grid">
+        <div class="value reveal">
+          <svg viewBox="0 0 24 24"><path d="M5 19c9 0 14-5 14-14-9 0-14 5-14 14z"/><path d="M5 19l7-7"/></svg>
+          <h4>Eco-Conscious</h4><p>Sustainable &amp; responsible</p>
+        </div>
+        <div class="value reveal" style="--d:.1s">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18M9 3l3 18M15 3l-3 18"/></svg>
+          <h4>Crafted Quality</h4><p>Details that endure</p>
+        </div>
+        <div class="value reveal" style="--d:.2s">
+          <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+          <h4>Timeless Design</h4><p>Minimal &amp; personal</p>
+        </div>
+        <div class="value reveal" style="--d:.3s">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+          <h4>Loved by Clients</h4><p><span data-count="350">0</span>+ happy homes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section process">
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <div>
+            <p class="eyebrow">How we work</p>
+            <h2 class="section__title">From First Chat to Final Cushion</h2>
+          </div>
+        </div>
+        <ol class="steps" id="steps">
+          <span class="steps__line" aria-hidden="true"><span></span></span>
+          <li class="step reveal"><span class="step__num">01</span><h4>Discover</h4><p>A relaxed consultation to learn how you live and what you love.</p></li>
+          <li class="step reveal" style="--d:.15s"><span class="step__num">02</span><h4>Design</h4><p>Mood boards, layouts and 3D renders tailored to your space.</p></li>
+          <li class="step reveal" style="--d:.3s"><span class="step__num">03</span><h4>Source</h4><p>Furniture, fabrics and finishes chosen and ordered for you.</p></li>
+          <li class="step reveal" style="--d:.45s"><span class="step__num">04</span><h4>Reveal</h4><p>We install, style and hand you the keys to your new room.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ INSPIRE ============ -->
+    <section class="inspire" id="inspire">
+      <div class="inspire__img reveal-img">
+        <img class="parallax" data-speed="0.1" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=85&auto=format&fit=crop" alt="Minimal corner with a mustard armchair, floor lamp and framed art" loading="lazy" />
+      </div>
+      <div class="inspire__text">
+        <p class="eyebrow reveal">Inspire your space</p>
+        <h2 class="section__title reveal" style="--d:.1s">Small Changes<br />Make a Big Difference</h2>
+        <p class="reveal" style="--d:.2s">Explore styling tips, colour stories and real client homes from the Agatha's studio journal.</p>
+        <a href="#gallery" class="btn btn--primary btn--sm reveal" style="--d:.3s">Get inspired <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="inspire__grid">
+        <img class="reveal-zoom" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700&q=80&auto=format&fit=crop" alt="Bright living room with gallery wall" loading="lazy" />
+        <img class="reveal-zoom" style="--d:.1s" src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=700&q=80&auto=format&fit=crop" alt="Airy living room with shutters" loading="lazy" />
+        <img class="reveal-zoom" style="--d:.2s" src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=700&q=80&auto=format&fit=crop" alt="Soft white bedroom" loading="lazy" />
+        <img class="reveal-zoom" style="--d:.3s" src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=700&q=80&auto=format&fit=crop" alt="Styled console with plants and round mirror" loading="lazy" />
+      </div>
+      <p class="inspire__script script" aria-hidden="true">Good <br />Design <br />Brighter <br />Days <span class="heart">♡</span></p>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <p class="eyebrow">What our clients say</p>
+            <h2 class="section__title">Loved in Real Homes</h2>
+          </div>
+          <div class="slider-arrows reveal">
+            <button class="round-btn" id="tPrev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+            <button class="round-btn" id="tNext" aria-label="Next testimonial"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <div class="testimonials reveal" id="testimonials">
+          <div class="testimonials__track" id="tTrack"></div>
+        </div>
+        <div class="dots" id="tDots"></div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section section--tight" id="gallery">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <p class="eyebrow">Follow us @agathasinteriors</p>
+            <h2 class="section__title">Real Homes. Real Inspiration.</h2>
+          </div>
+          <a href="#" class="link-arrow reveal">View on Instagram <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="gallery" id="galleryList"></div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="newsletter">
+      <div class="container newsletter__inner">
+        <div class="newsletter__text reveal">
+          <h2>Join Our Community</h2>
+          <p>Get seasonal styling tips, project reveals and early booking dates straight to your inbox.</p>
+          <form class="newsletter__form" id="newsletterForm" novalidate>
+            <input type="email" placeholder="Your email address" aria-label="Email address" required />
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+        <img class="newsletter__img" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80&auto=format&fit=crop" alt="Sunlit living room" loading="lazy" />
+        <p class="newsletter__script script" aria-hidden="true">Better <br />Spaces <br />Happier <br />People <span class="heart">♡</span></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#top" class="logo">
+          <span class="logo__main">AGATHA'S</span>
+          <span class="logo__sub">INTERIOR DESIGN</span>
+        </a>
+        <p>Thoughtful interiors for a more beautiful, sustainable tomorrow.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v7h4v-7h3l1-4h-4V8z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8c3-1 5 1 4.5 3.5S12 15 11 13m0 0l-2 8"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4.5 5 4.5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Services</button>
+        <ul>
+          <li><a href="#services">Full-Service Design</a></li>
+          <li><a href="#services">E-Design</a></li>
+          <li><a href="#services">Room Styling</a></li>
+          <li><a href="#services">Consultations</a></li>
+          <li><a href="#spaces">Living Rooms</a></li>
+          <li><a href="#spaces">Bedrooms</a></li>
+          <li><a href="#spaces">Kitchens</a></li>
+          <li><a href="#spaces">Home Offices</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Studio</button>
+        <ul>
+          <li><a href="#story">About Agatha</a></li>
+          <li><a href="#story">Sustainability</a></li>
+          <li><a href="#gallery">Portfolio</a></li>
+          <li><a href="#inspire">Journal</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Client Care</button>
+        <ul>
+          <li><a href="#">Book a Consultation</a></li>
+          <li><a href="#">Our Process</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Agatha's Interior Design. All rights reserved.</p>
+      <p>A more beautiful tomorrow. Together. <span class="heart">♡</span></p>
+    </div>
+  </footer>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookTitle" hidden>
+    <div class="modal__card">
+      <button class="icon-btn modal__close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <img class="modal__img" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&q=80&auto=format&fit=crop" alt="" />
+      <form class="modal__form" id="bookForm" novalidate>
+        <p class="eyebrow">Complimentary 30 minutes</p>
+        <h3 id="bookTitle">Book a Consultation</h3>
+        <label>Your name<input name="name" required autocomplete="name" /></label>
+        <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+        <label>Service
+          <select name="service" id="serviceSelect">
+            <option>Design Consultation</option>
+            <option>E-Design</option>
+            <option>Room Styling</option>
+            <option>Full-Service Design</option>
+          </select>
+        </label>
+        <label>Tell us about your space<textarea name="msg" rows="3" placeholder="Which room, your style, timeline…"></textarea></label>
+        <button class="btn btn--primary" type="submit">Request my call <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="icon-btn lightbox__close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button class="round-btn lightbox__prev" id="lbPrev" aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <img id="lbImg" alt="" />
+    <button class="round-btn lightbox__next" id="lbNext" aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
