@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Booking — Agatha's Interior Design</title>
+  <meta name="description" content="Book a complimentary 30-minute consultation with Agatha's Interior Design, or get in touch by email, phone or at the studio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="ct-page">
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <p>Complimentary 30-minute consultation for new clients | In-home &amp; virtual design</p>
+      <p class="topbar__right">Beautiful, sustainable interiors for a better tomorrow</p>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <a href="index.html" class="logo" aria-label="Agatha's Interior Design home">
+        <span class="logo__main">AGATHA'S</span>
+        <span class="logo__sub">INTERIOR DESIGN</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__head">
+          <span class="logo__main">AGATHA'S</span>
+          <button class="icon-btn" id="menuClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li class="has-dropdown">
+            <button class="nav__link dropdown-toggle">Services <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="dropdown">
+              <li><a href="services.html">All Services</a></li>
+              <li><a href="services.html#full-service">Full-Service Design</a></li>
+              <li><a href="services.html#e-design">E-Design</a></li>
+              <li><a href="services.html#styling">Room Styling</a></li>
+              <li><a href="services.html#consultation">Design Consultation</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav__link dropdown-toggle">Portfolio <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="dropdown">
+              <li><a href="portfolio.html">All Projects</a></li>
+              <li><a href="portfolio.html?cat=living">Living Spaces</a></li>
+              <li><a href="portfolio.html?cat=bedroom">Bedrooms</a></li>
+              <li><a href="portfolio.html?cat=kitchen">Kitchens &amp; Dining</a></li>
+              <li><a href="portfolio.html?cat=bath">Bathrooms</a></li>
+              <li><a href="portfolio.html?cat=workspace">Workspaces</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="index.html#inspire" class="nav__link">Inspiration</a></li>
+          <li><a href="contact.html" class="nav__link active">Contact</a></li>
+        </ul>
+        <div class="nav__foot">
+          <button class="btn btn--primary" data-book>Book a consultation <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p>Complimentary 30-minute call for new clients</p>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" aria-label="Search" id="searchBtn">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn hide-sm" aria-label="Account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </button>
+        <button class="icon-btn saved-btn" aria-label="Saved ideas">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+          <span class="badge" id="savedCount">0</span>
+        </button>
+        <button class="btn btn--primary btn--sm hide-sm" data-book>Book a call</button>
+      </div>
+    </div>
+
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="search" placeholder="Search services, rooms, inspiration…" aria-label="Search the site" />
+      </div>
+    </div>
+  </header>
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="pf-hero ct-hero">
+      <div class="container pf-hero__inner">
+        <nav class="breadcrumb fade-in" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span>Contact</nav>
+        <p class="eyebrow fade-in" style="--d:.1s">Get in touch</p>
+        <h1 class="hero__title pf-hero__title">
+          <span class="line"><span>Let's Talk About</span></span>
+          <span class="line"><span>Your Home</span></span>
+        </h1>
+        <p class="pf-hero__lead fade-in" style="--d:.6s">Whether you have a full renovation in mind or just a room that isn't quite working, Agatha would love to hear from you. Your first 30-minute call is complimentary.</p>
+      </div>
+      <p class="pf-hero__script script" aria-hidden="true">Can't wait to<br />meet you ♡</p>
+      <div class="container ct-cards">
+        <button class="ct-card reveal" data-copy="hello@agathasinteriors.com" data-cursor="Copy">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span class="ct-card__label">Email</span><strong>hello@agathasinteriors.com</strong><small>Tap to copy</small>
+        </button>
+        <a class="ct-card reveal" style="--d:.08s" href="tel:+2347041001692">
+          <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+          <span class="ct-card__label">Phone</span><strong>0704 100 1692</strong><small>Mon–Fri, 9am–6pm</small>
+        </a>
+        <div class="ct-card reveal" style="--d:.16s">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span class="ct-card__label">Studio</span><strong>200 Awolowo Rd, Ikoyi, Lagos</strong><small>Visits by appointment</small>
+        </div>
+        <div class="ct-card reveal" style="--d:.24s">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span class="ct-card__label">Hours</span><strong>Mon–Fri · 9am–6pm</strong><small><span class="ct-live" id="ctLive"></span></small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING FORM ============ -->
+    <section class="section ct-main" id="book">
+      <div class="container ct-grid">
+        <div class="ct-form-wrap reveal">
+          <div class="ct-form-head">
+            <p class="eyebrow">Book a consultation</p>
+            <h2 class="section__title">Tell Us About Your Project</h2>
+          </div>
+          <ol class="ct-steps" id="ctSteps">
+            <span class="ct-steps__line" aria-hidden="true"><span id="ctStepsFill"></span></span>
+            <li class="active"><span>1</span>Service</li>
+            <li><span>2</span>Your space</li>
+            <li><span>3</span>Your details</li>
+          </ol>
+
+          <form id="bookingForm" novalidate>
+            <fieldset class="ct-step active" data-step="0">
+              <legend>What can Agatha help with?</legend>
+              <div class="ct-options">
+                <label class="ct-option">
+                  <input type="radio" name="service" value="Design Consultation" checked />
+                  <span class="ct-option__box">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    <strong>Design Consultation</strong><small>₦150,000 · 90 min</small>
+                    <span class="ct-option__tick" aria-hidden="true"></span>
+                  </span>
+                </label>
+                <label class="ct-option">
+                  <input type="radio" name="service" value="E-Design" />
+                  <span class="ct-option__box">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    <strong>E-Design</strong><small>₦750,000 / room</small>
+                    <span class="ct-option__tick" aria-hidden="true"></span>
+                  </span>
+                </label>
+                <label class="ct-option">
+                  <input type="radio" name="service" value="Room Styling" />
+                  <span class="ct-option__box">
+                    <svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+                    <strong>Room Styling</strong><small>₦1,500,000 / room</small>
+                    <span class="ct-option__tick" aria-hidden="true"></span>
+                  </span>
+                </label>
+                <label class="ct-option">
+                  <input type="radio" name="service" value="Full-Service Design" />
+                  <span class="ct-option__box">
+                    <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+                    <strong>Full-Service Design</strong><small>from ₦7,500,000</small>
+                    <span class="ct-option__tick" aria-hidden="true"></span>
+                  </span>
+                </label>
+                <label class="ct-option">
+                  <input type="radio" name="service" value="Not sure yet" />
+                  <span class="ct-option__box">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.7M12 17h.01"/></svg>
+                    <strong>Not sure yet</strong><small>Let's chat first</small>
+                    <span class="ct-option__tick" aria-hidden="true"></span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ct-step" data-step="1">
+              <legend>Tell us about your space</legend>
+              <p class="ct-label">Which rooms? <small>Choose all that apply</small></p>
+              <div class="ct-chips" id="roomChips">
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Living room" /><span>Living room</span></label>
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Bedroom" /><span>Bedroom</span></label>
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Kitchen" /><span>Kitchen</span></label>
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Dining room" /><span>Dining room</span></label>
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Bathroom" /><span>Bathroom</span></label>
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Home office" /><span>Home office</span></label>
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Entryway" /><span>Entryway</span></label>
+                <label class="ct-chip"><input type="checkbox" name="rooms" value="Whole home" /><span>Whole home</span></label>
+              </div>
+              <p class="ct-label">Approximate budget <output id="budgetOut" for="budget">₦10M</output></p>
+              <input class="ct-range" type="range" id="budget" name="budget" min="1000000" max="50000000" step="500000" value="10000000" aria-label="Approximate budget" />
+              <div class="ct-range__scale"><span>₦1M</span><span>₦25M</span><span>₦50M+</span></div>
+              <p class="ct-label">When would you like to start?</p>
+              <div class="ct-chips">
+                <label class="ct-chip"><input type="radio" name="timeline" value="As soon as possible" /><span>As soon as possible</span></label>
+                <label class="ct-chip"><input type="radio" name="timeline" value="1–3 months" checked /><span>1–3 months</span></label>
+                <label class="ct-chip"><input type="radio" name="timeline" value="3–6 months" /><span>3–6 months</span></label>
+                <label class="ct-chip"><input type="radio" name="timeline" value="Just exploring" /><span>Just exploring</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ct-step" data-step="2">
+              <legend>How can we reach you?</legend>
+              <div class="ct-fields">
+                <label class="ct-field"><input name="name" autocomplete="name" placeholder=" " required /><span>Full name</span></label>
+                <label class="ct-field"><input name="email" type="email" autocomplete="email" placeholder=" " required /><span>Email address</span></label>
+                <label class="ct-field"><input name="phone" type="tel" autocomplete="tel" placeholder=" " /><span>Phone (optional)</span></label>
+                <div class="ct-field ct-field--pref">
+                  <p class="ct-label">Best way to reach you</p>
+                  <div class="ct-chips">
+                    <label class="ct-chip"><input type="radio" name="pref" value="Email" checked /><span>Email</span></label>
+                    <label class="ct-chip"><input type="radio" name="pref" value="Phone" /><span>Phone</span></label>
+                    <label class="ct-chip"><input type="radio" name="pref" value="Video call" /><span>Video call</span></label>
+                  </div>
+                </div>
+                <label class="ct-field ct-field--full"><textarea name="message" rows="4" maxlength="600" placeholder=" "></textarea><span>Anything else we should know?</span><small class="ct-count" id="msgCount">0 / 600</small></label>
+              </div>
+            </fieldset>
+
+            <div class="ct-nav">
+              <button type="button" class="btn btn--link ct-back" id="ctBack" hidden>Back</button>
+              <button type="button" class="btn btn--primary" id="ctNext">Continue <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button type="submit" class="btn btn--primary" id="ctSend" hidden>Send request <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </form>
+
+          <div class="ct-success" id="ctSuccess" hidden tabindex="-1">
+            <svg class="ct-success__check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+            <h3 id="ctThanks">Thank you!</h3>
+            <p>Your request is on its way. Agatha will be in touch within 24 hours to arrange your complimentary call.</p>
+            <dl class="ct-summary" id="ctSummary"></dl>
+            <div class="ct-success__actions">
+              <a class="btn btn--primary btn--sm" href="portfolio.html">Browse projects <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <button class="btn btn--link" id="ctAgain" type="button">Send another request</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="ct-aside reveal" style="--d:.15s">
+          <div class="ct-aside__card">
+            <div class="ct-aside__who">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=85&auto=format&fit=crop" alt="Agatha" />
+              <div><strong>Agatha replies personally</strong><span class="ct-reply"><i></i>Usually within 24 hours</span></div>
+            </div>
+            <p class="eyebrow">What happens next</p>
+            <ol class="ct-next">
+              <li><span>1</span><div><strong>We review your request</strong><p>Agatha reads every enquiry and prepares a few first ideas.</p></div></li>
+              <li><span>2</span><div><strong>Your free 30-minute call</strong><p>By phone or video — we talk about your space, style and budget.</p></div></li>
+              <li><span>3</span><div><strong>A tailored proposal</strong><p>A clear plan and fixed fee, with no obligation to go ahead.</p></div></li>
+            </ol>
+          </div>
+          <p class="ct-aside__script script" aria-hidden="true">No pressure,<br />just possibilities</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ WHERE WE WORK ============ -->
+    <section class="section ct-areas-sec">
+      <div class="container ct-areas">
+        <div class="ct-areas__text reveal">
+          <p class="eyebrow">Where we work</p>
+          <h2 class="section__title">Local Studio,<br />Designing Everywhere</h2>
+          <p>Room Styling and Full-Service projects are available across the neighbourhoods around our Ikoyi studio in Lagos. Consultations and E-Design work anywhere in Nigeria and beyond, online.</p>
+          <ul class="ct-area-list">
+            <li class="reveal-zoom" style="--d:0s">Ikoyi</li>
+            <li class="reveal-zoom" style="--d:0.06s">Banana Island</li>
+            <li class="reveal-zoom" style="--d:0.12s">Victoria Island</li>
+            <li class="reveal-zoom" style="--d:0.18s">Lekki Phase 1</li>
+            <li class="reveal-zoom" style="--d:0.24s">Ajah</li>
+            <li class="reveal-zoom" style="--d:0.3s">Ikeja GRA</li>
+            <li class="reveal-zoom" style="--d:0.36s">Yaba</li>
+            <li class="reveal-zoom" style="--d:0.42s">Surulere</li>
+            <li class="reveal-zoom is-online" style="--d:0.42s">Anywhere online</li>
+          </ul>
+        </div>
+        <div class="ct-map reveal-zoom" aria-hidden="true">
+          <span class="ct-map__ring" style="--r:1"></span><span class="ct-map__ring" style="--r:.7"></span><span class="ct-map__ring" style="--r:.4"></span>
+          <span class="ct-map__pulse"></span>
+          <span class="ct-map__home" title="Studio — Ikoyi"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
+          <span class="ct-map__dot" style="left:44%; top:10%; --i:0"><em>Ikeja GRA</em></span>
+          <span class="ct-map__dot" style="left:20%; top:28%; --i:1"><em>Yaba</em></span>
+          <span class="ct-map__dot" style="left:12%; top:60%; --i:2"><em>Surulere</em></span>
+          <span class="ct-map__dot" style="left:72%; top:30%; --i:3"><em>Banana Island</em></span>
+          <span class="ct-map__dot" style="left:46%; top:84%; --i:4"><em>Victoria Island</em></span>
+          <span class="ct-map__dot" style="left:76%; top:72%; --i:5"><em>Lekki Phase 1</em></span>
+          <span class="ct-map__dot" style="left:90%; top:50%; --i:6"><em>Ajah</em></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq-sec">
+      <div class="container faq">
+        <div class="faq__intro reveal">
+          <p class="eyebrow">Before you get in touch</p>
+          <h2 class="section__title">Quick Answers</h2>
+          <p>More detail on each package is on the <a href="services.html" class="text-link">services page</a>.</p>
+        </div>
+        <div class="faq__list">
+          <div class="faq__item reveal">
+            <button class="faq__q" aria-expanded="false">Is the first call really free?<span class="faq__icon"></span></button>
+            <div class="faq__a"><div><p>Yes. The 30-minute introductory call is complimentary and comes with no obligation — it's simply a chance to see if we're a good fit.</p></div></div>
+          </div>
+          <div class="faq__item reveal" style="--d:.05s">
+            <button class="faq__q" aria-expanded="false">What should I prepare for the call?<span class="faq__icon"></span></button>
+            <div class="faq__a"><div><p>A few photos of your space, any images you love from Pinterest or magazines, and a rough idea of your budget and timeline. Nothing more.</p></div></div>
+          </div>
+          <div class="faq__item reveal" style="--d:.1s">
+            <button class="faq__q" aria-expanded="false">Can I visit the studio?<span class="faq__icon"></span></button>
+            <div class="faq__a"><div><p>Of course — studio visits are by appointment so Agatha can give you her full attention. Mention it in your request and we'll arrange a time.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="logo">
+          <span class="logo__main">AGATHA'S</span>
+          <span class="logo__sub">INTERIOR DESIGN</span>
+        </a>
+        <p>Thoughtful interiors for a more beautiful, sustainable tomorrow.</p>
+        <address class="footer__contact">200 Awolowo Rd, Ikoyi, Lagos<br /><a href="tel:+2347041001692">0704 100 1692</a></address>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v7h4v-7h3l1-4h-4V8z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8c3-1 5 1 4.5 3.5S12 15 11 13m0 0l-2 8"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4.5 5 4.5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Services</button>
+        <ul>
+          <li><a href="services.html#full-service">Full-Service Design</a></li>
+          <li><a href="services.html#e-design">E-Design</a></li>
+          <li><a href="services.html#styling">Room Styling</a></li>
+          <li><a href="services.html#consultation">Consultations</a></li>
+          <li><a href="portfolio.html?cat=living">Living Rooms</a></li>
+          <li><a href="portfolio.html?cat=bedroom">Bedrooms</a></li>
+          <li><a href="portfolio.html?cat=kitchen">Kitchens</a></li>
+          <li><a href="portfolio.html?cat=workspace">Home Offices</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Studio</button>
+        <ul>
+          <li><a href="about.html">About Agatha</a></li>
+          <li><a href="about.html#promise">Sustainability</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#inspire">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Client Care</button>
+        <ul>
+          <li><a href="contact.html#book">Book a Consultation</a></li>
+          <li><a href="services.html#finder">Find Your Service</a></li>
+          <li><a href="services.html#compare">Pricing</a></li>
+          <li><a href="services.html#faqList">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Agatha's Interior Design. All rights reserved.</p>
+      <p>A more beautiful tomorrow. Together. <span class="heart">♡</span></p>
+    </div>
+  </footer>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookTitle" hidden>
+    <div class="modal__card">
+      <button class="icon-btn modal__close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <img class="modal__img" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&q=80&auto=format&fit=crop" alt="" />
+      <form class="modal__form" id="bookForm" novalidate>
+        <p class="eyebrow">Complimentary 30 minutes</p>
+        <h3 id="bookTitle">Book a Consultation</h3>
+        <label>Your name<input name="name" required autocomplete="name" /></label>
+        <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+        <label>Service
+          <select name="service" id="serviceSelect">
+            <option>Design Consultation</option>
+            <option>E-Design</option>
+            <option>Room Styling</option>
+            <option>Full-Service Design</option>
+          </select>
+        </label>
+        <label>Tell us about your space<textarea name="msg" rows="3" placeholder="Which room, your style, timeline…"></textarea></label>
+        <button class="btn btn--primary" type="submit">Request my call <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </div>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="contact.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

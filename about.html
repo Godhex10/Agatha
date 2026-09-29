@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Agatha — Agatha's Interior Design</title>
+  <meta name="description" content="Meet Agatha — the interior designer behind calm, personal, sustainable homes. Her story, her approach and what she believes about home." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="about-page">
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <p>Complimentary 30-minute consultation for new clients | In-home &amp; virtual design</p>
+      <p class="topbar__right">Beautiful, sustainable interiors for a better tomorrow</p>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <a href="index.html" class="logo" aria-label="Agatha's Interior Design home">
+        <span class="logo__main">AGATHA'S</span>
+        <span class="logo__sub">INTERIOR DESIGN</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__head">
+          <span class="logo__main">AGATHA'S</span>
+          <button class="icon-btn" id="menuClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li class="has-dropdown">
+            <button class="nav__link dropdown-toggle">Services <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="dropdown">
+              <li><a href="services.html">All Services</a></li>
+              <li><a href="services.html#full-service">Full-Service Design</a></li>
+              <li><a href="services.html#e-design">E-Design</a></li>
+              <li><a href="services.html#styling">Room Styling</a></li>
+              <li><a href="services.html#consultation">Design Consultation</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav__link dropdown-toggle">Portfolio <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="dropdown">
+              <li><a href="portfolio.html">All Projects</a></li>
+              <li><a href="portfolio.html?cat=living">Living Spaces</a></li>
+              <li><a href="portfolio.html?cat=bedroom">Bedrooms</a></li>
+              <li><a href="portfolio.html?cat=kitchen">Kitchens &amp; Dining</a></li>
+              <li><a href="portfolio.html?cat=bath">Bathrooms</a></li>
+              <li><a href="portfolio.html?cat=workspace">Workspaces</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav__link active">About</a></li>
+          <li><a href="index.html#inspire" class="nav__link">Inspiration</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__foot">
+          <button class="btn btn--primary" data-book>Book a consultation <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p>Complimentary 30-minute call for new clients</p>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" aria-label="Search" id="searchBtn">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn hide-sm" aria-label="Account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </button>
+        <button class="icon-btn saved-btn" aria-label="Saved ideas">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+          <span class="badge" id="savedCount">0</span>
+        </button>
+        <button class="btn btn--primary btn--sm hide-sm" data-book>Book a call</button>
+      </div>
+    </div>
+
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="search" placeholder="Search services, rooms, inspiration…" aria-label="Search the site" />
+      </div>
+    </div>
+  </header>
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div class="page-hero__text">
+          <nav class="breadcrumb fade-in" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span>About</nav>
+          <p class="eyebrow fade-in" style="--d:.1s">About the studio</p>
+          <h1 class="hero__title page-hero__title">
+            <span class="line"><span>Hello, I'm</span></span>
+            <span class="line"><span>Agatha.</span></span>
+          </h1>
+          <p class="page-hero__lead fade-in" style="--d:.6s">I design calm, personal homes for real life — rooms that look beautiful, feel warm and work hard for the people who live in them. For over a decade, that's been my favourite job in the world.</p>
+          <div class="hero__cta fade-in" style="--d:.75s">
+            <a class="btn btn--primary magnetic" href="contact.html#book">Work with me <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="portfolio.html" class="btn btn--link">See my work</a>
+          </div>
+          <ul class="page-hero__trust fade-in" style="--d:.9s">
+            <li><strong><span data-count="12">0</span> yrs</strong> designing homes</li>
+            <li><strong><span data-count="350">0</span>+</strong> happy clients</li>
+          </ul>
+        </div>
+
+        <div class="page-hero__art">
+          <div class="page-hero__main reveal-img">
+            <img class="parallax" data-speed="0.06" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1100&q=85&auto=format&fit=crop" alt="Portrait of Agatha, interior designer" />
+          </div>
+          <div class="page-hero__small reveal-img" style="--d:.35s">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=700&q=85&auto=format&fit=crop" alt="Styled console with plants, ceramics and a round mirror" />
+          </div>
+          <div class="rot-badge" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="badgeCircle" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" /></defs>
+              <text><textPath href="#badgeCircle" textLength="280" lengthAdjust="spacing">INTERIORS WITH HEART • INTERIORS WITH HEART • </textPath></text>
+            </svg>
+            <span>♡</span>
+          </div>
+          <p class="page-hero__script script" aria-hidden="true">— Agatha</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATEMENT (words fill in as you scroll) ============ -->
+    <section class="section statement-sec">
+      <div class="container">
+        <p class="eyebrow reveal">What I believe</p>
+        <p class="fill-text" id="fillText">A home should feel like a deep breath at the end of a long day. It should hold your family's mess and your best dinner parties, your quiet Sunday mornings and your loudest celebrations — and look beautiful doing it.</p>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY TIMELINE ============ -->
+    <section class="section journey-sec">
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <div>
+            <p class="eyebrow">My journey</p>
+            <h2 class="section__title">From a Sketchbook to 350 Homes</h2>
+          </div>
+        </div>
+        <ol class="journey" id="journey">
+          <span class="journey__line" aria-hidden="true"><span id="journeyFill"></span></span>
+          <li class="journey__item reveal">
+            <span class="journey__dot" aria-hidden="true"></span>
+            <div class="journey__card">
+              <span class="journey__year">2012</span>
+              <h3>Falling for interiors</h3>
+              <p>Graduated in interior design and spent a summer restoring the family farmhouse — the project that started it all.</p>
+            </div>
+          </li>
+          <li class="journey__item reveal journey__item--right">
+            <span class="journey__dot" aria-hidden="true"></span>
+            <div class="journey__card">
+              <span class="journey__year">2014</span>
+              <h3>Learning the craft</h3>
+              <p>Four years at a boutique studio designing family homes and small hotels, learning every trade on site.</p>
+            </div>
+          </li>
+          <li class="journey__item reveal">
+            <span class="journey__dot" aria-hidden="true"></span>
+            <div class="journey__card">
+              <span class="journey__year">2018</span>
+              <h3>The studio is born</h3>
+              <p>Agatha's Interior Design opens with one client, one sketchbook and a kitchen-table office.</p>
+            </div>
+          </li>
+          <li class="journey__item reveal journey__item--right">
+            <span class="journey__dot" aria-hidden="true"></span>
+            <div class="journey__card">
+              <span class="journey__year">2020</span>
+              <h3>Design goes online</h3>
+              <p>E-Design launches, so families anywhere can work with the studio from their own sofa.</p>
+            </div>
+          </li>
+          <li class="journey__item reveal">
+            <span class="journey__dot" aria-hidden="true"></span>
+            <div class="journey__card">
+              <span class="journey__year">2023</span>
+              <h3>350 happy homes</h3>
+              <p>A growing network of 40+ local makers, craftspeople and trusted trades.</p>
+            </div>
+          </li>
+          <li class="journey__item reveal journey__item--right">
+            <span class="journey__dot" aria-hidden="true"></span>
+            <div class="journey__card">
+              <span class="journey__year">2025</span>
+              <h3>A greener promise</h3>
+              <p>Low-VOC finishes and sustainably sourced pieces become standard on every project.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PHILOSOPHY ============ -->
+    <section class="section philosophy-sec">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <p class="eyebrow">How I work</p>
+            <h2 class="section__title">Four Things I Never Compromise On</h2>
+          </div>
+        </div>
+        <div class="addons">
+          <article class="addon reveal">
+            <svg viewBox="0 0 24 24"><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            <h3>Listen First</h3><p>Every project starts with how you live — your routines, your treasures and your frustrations — never with a trend.</p><span>01</span>
+          </article>
+          <article class="addon reveal" style="--d:.08s">
+            <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+            <h3>Beauty You Can Live In</h3><p>Rooms made for real life: children, pets, spilled wine and lazy Sundays — practical without ever feeling it.</p><span>02</span>
+          </article>
+          <article class="addon reveal" style="--d:.16s">
+            <svg viewBox="0 0 24 24"><path d="M5 19c9 0 14-5 14-14-9 0-14 5-14 14z"/><path d="M5 19l7-7"/></svg>
+            <h3>Natural &amp; Lasting</h3><p>Honest materials, local makers and pieces chosen to last decades, not seasons. Better for you and the planet.</p><span>03</span>
+          </article>
+          <article class="addon reveal" style="--d:.24s">
+            <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
+            <h3>Honest Budgets</h3><p>Clear, fixed design fees and straight talk about where to spend and where to save. No surprises.</p><span>04</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS BAND ============ -->
+    <section class="stats-band" id="promise">
+      <img class="parallax" data-speed="0.12" src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=2000&q=85&auto=format&fit=crop" alt="" loading="lazy" />
+      <div class="container stats-band__inner">
+        <div class="stats-band__text reveal">
+          <p class="eyebrow">Better homes, a brighter planet</p>
+          <h2>Designed to Last,<br />Sourced with Care</h2>
+          <p>Every project uses low-VOC paints and finishes, favours local and reclaimed materials, and keeps good furniture in use for longer.</p>
+        </div>
+        <div class="stats-band__grid">
+          <div class="stat reveal"><strong><span data-count="350">0</span>+</strong><span>Homes designed</span></div>
+          <div class="stat reveal" style="--d:.1s"><strong><span data-count="40">0</span>+</strong><span>Local makers</span></div>
+          <div class="stat reveal" style="--d:.2s"><strong><span data-count="4.9" data-decimals="1">0</span>★</strong><span>Client rating</span></div>
+          <div class="stat reveal" style="--d:.3s"><strong><span data-count="100">0</span>%</strong><span>Low-VOC finishes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STUDIO STRIP ============ -->
+    <section class="section studio-sec">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <p class="eyebrow">Inside the studio</p>
+            <h2 class="section__title">The Little Details I Love</h2>
+          </div>
+          <a href="portfolio.html" class="link-arrow reveal">See full projects <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="img-marquee" aria-hidden="true">
+        <div class="img-marquee__track"><img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1616627561950-9f746e330187?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1616627561950-9f746e330187?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=85&auto=format&fit=crop" alt="" loading="lazy" /></div>
+      </div>
+      <p class="container studio-sec__script script reveal" aria-hidden="true">Good design is in the details ♡</p>
+    </section>
+
+    <!-- ============ QUOTE ============ -->
+    <section class="quote-sec">
+      <div class="container quote">
+        <span class="quote__mark reveal-zoom" aria-hidden="true">“</span>
+        <blockquote class="reveal">Agatha doesn't just design rooms — she listens, she remembers the little things, and somehow she makes your home feel more like you than you could have imagined.</blockquote>
+        <div class="quote__who reveal" style="--d:.15s">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=160&q=85&auto=format&fit=crop" alt="Neha M." loading="lazy" />
+          <p><strong>Neha M.</strong><span>Client since 2021</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-band">
+      <img class="parallax" data-speed="0.1" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=2000&q=85&auto=format&fit=crop" alt="" loading="lazy" />
+      <div class="container cta-band__inner reveal">
+        <p class="eyebrow">Let's work together</p>
+        <h2>I'd Love to Hear<br />About Your Home</h2>
+        <p>Tell me about your space — the first 30-minute call is on me.</p>
+        <a class="btn btn--light magnetic" href="contact.html#book">Book a consultation <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="logo">
+          <span class="logo__main">AGATHA'S</span>
+          <span class="logo__sub">INTERIOR DESIGN</span>
+        </a>
+        <p>Thoughtful interiors for a more beautiful, sustainable tomorrow.</p>
+        <address class="footer__contact">200 Awolowo Rd, Ikoyi, Lagos<br /><a href="tel:+2347041001692">0704 100 1692</a></address>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v7h4v-7h3l1-4h-4V8z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8c3-1 5 1 4.5 3.5S12 15 11 13m0 0l-2 8"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4.5 5 4.5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Services</button>
+        <ul>
+          <li><a href="services.html#full-service">Full-Service Design</a></li>
+          <li><a href="services.html#e-design">E-Design</a></li>
+          <li><a href="services.html#styling">Room Styling</a></li>
+          <li><a href="services.html#consultation">Consultations</a></li>
+          <li><a href="portfolio.html?cat=living">Living Rooms</a></li>
+          <li><a href="portfolio.html?cat=bedroom">Bedrooms</a></li>
+          <li><a href="portfolio.html?cat=kitchen">Kitchens</a></li>
+          <li><a href="portfolio.html?cat=workspace">Home Offices</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Studio</button>
+        <ul>
+          <li><a href="about.html">About Agatha</a></li>
+          <li><a href="about.html#promise">Sustainability</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#inspire">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <button class="footer__title">Client Care</button>
+        <ul>
+          <li><a href="contact.html#book">Book a Consultation</a></li>
+          <li><a href="services.html#finder">Find Your Service</a></li>
+          <li><a href="services.html#compare">Pricing</a></li>
+          <li><a href="services.html#faqList">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Agatha's Interior Design. All rights reserved.</p>
+      <p>A more beautiful tomorrow. Together. <span class="heart">♡</span></p>
+    </div>
+  </footer>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookTitle" hidden>
+    <div class="modal__card">
+      <button class="icon-btn modal__close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <img class="modal__img" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&q=80&auto=format&fit=crop" alt="" />
+      <form class="modal__form" id="bookForm" novalidate>
+        <p class="eyebrow">Complimentary 30 minutes</p>
+        <h3 id="bookTitle">Book a Consultation</h3>
+        <label>Your name<input name="name" required autocomplete="name" /></label>
+        <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+        <label>Service
+          <select name="service" id="serviceSelect">
+            <option>Design Consultation</option>
+            <option>E-Design</option>
+            <option>Room Styling</option>
+            <option>Full-Service Design</option>
+          </select>
+        </label>
+        <label>Tell us about your space<textarea name="msg" rows="3" placeholder="Which room, your style, timeline…"></textarea></label>
+        <button class="btn btn--primary" type="submit">Request my call <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </div>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="about.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

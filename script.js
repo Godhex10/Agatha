@@ -12,24 +12,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Content (edit freely) ---------- */
   const spaces = [
-    { name: "Living Room",     id: "1616486338812-3dadae4b4ace" },
-    { name: "Bedroom",         id: "1617098900591-3f90928e8c54" },
-    { name: "Dining Room",     id: "1617806118233-18e1de247200" },
-    { name: "Kitchen",         id: "1600489000022-c2086d79f9d4" },
-    { name: "Home Office",     id: "1600494603989-9650cf6ddd3d" },
-    { name: "Bathroom",        id: "1620626011761-996317b8d101" },
-    { name: "Entryway",        id: "1618219908412-a29a1bb7b86e" },
-    { name: "Styling & Decor", id: "1532372320572-cda25653a26d" },
+    { name: "Living Room",     id: "1616486338812-3dadae4b4ace", cat: "living" },
+    { name: "Bedroom",         id: "1617098900591-3f90928e8c54", cat: "bedroom" },
+    { name: "Dining Room",     id: "1617806118233-18e1de247200", cat: "kitchen" },
+    { name: "Kitchen",         id: "1600489000022-c2086d79f9d4", cat: "kitchen" },
+    { name: "Home Office",     id: "1600494603989-9650cf6ddd3d", cat: "workspace" },
+    { name: "Bathroom",        id: "1620626011761-996317b8d101", cat: "bath" },
+    { name: "Entryway",        id: "1618219908412-a29a1bb7b86e", cat: "living" },
+    { name: "Styling & Decor", id: "1532372320572-cda25653a26d", cat: "" },
   ];
 
   const services = [
-    { key: "Design Consultation", price: "$199", unit: "/ session", reviews: 128, id: "1556228453-efd6c1ff04f6",
+    { key: "Design Consultation", price: "₦150,000", unit: "/ session", reviews: 128, id: "1556228453-efd6c1ff04f6",
       desc: "A 90-minute in-home or virtual session with a personal action plan." },
-    { key: "E-Design", price: "$899", unit: "/ room", reviews: 96, id: "1502672260266-1c1ef2d93688", tag: "New",
+    { key: "E-Design", price: "₦750,000", unit: "/ room", reviews: 96, id: "1502672260266-1c1ef2d93688", tag: "New",
       desc: "Mood board, floor plan and shoppable list — delivered online." },
-    { key: "Room Styling", price: "$1,200", unit: "/ room", reviews: 210, id: "1616627561950-9f746e330187",
+    { key: "Room Styling", price: "₦1,500,000", unit: "/ room", reviews: 210, id: "1616627561950-9f746e330187",
       desc: "Fresh layouts, textiles, art and accessories to finish a room." },
-    { key: "Full-Service Design", price: "$4,500", unit: "from", reviews: 142, id: "1598928506311-c55ded91a20c", tag: "Most loved",
+    { key: "Full-Service Design", price: "₦7,500,000", unit: "from", reviews: 142, id: "1598928506311-c55ded91a20c", tag: "Most loved",
       desc: "Concept to installation, managed beautifully from start to finish." },
   ];
 
@@ -55,14 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "1600607687920-4e2a09cf159d", alt: "Modern dining space" },
   ];
 
-  /* ---------- Render ---------- */
-  $("#spacesList").innerHTML = spaces.map((s, i) => `
-    <a href="#gallery" class="space reveal" style="--d:${i * 0.06}s">
+  /* ---------- Render (each page only has some of these containers) ---------- */
+  const fill = (sel, html) => { const el = $(sel); if (el) el.innerHTML = html; };
+  fill("#spacesList", spaces.map((s, i) => `
+    <a href="portfolio.html${s.cat ? "?cat=" + s.cat : ""}" class="space reveal" style="--d:${i * 0.06}s">
       <div class="space__img"><img src="${img(s.id, 400)}" alt="${s.name} interior" loading="lazy" /></div>
       <span>${s.name}</span>
-    </a>`).join("");
+    </a>`).join(""));
 
-  $("#servicesList").innerHTML = services.map((s, i) => `
+  fill("#servicesList", services.map((s, i) => `
     <article class="service reveal" style="--d:${i * 0.1}s">
       <div class="service__img">
         <img src="${img(s.id, 800)}" alt="${s.key}" loading="lazy" />
@@ -78,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <button class="book-btn" data-book data-service="${s.key}">Book now</button>
       </div>
-    </article>`).join("");
+    </article>`).join(""));
 
-  $("#tTrack").innerHTML = testimonials.map(t => `
+  fill("#tTrack", testimonials.map(t => `
     <figure class="testimonial">
       <img src="${img(t.id, 160)}" alt="${t.name}" loading="lazy" />
       <div>
@@ -88,13 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="stars">★★★★★</span>
         <figcaption><cite>${t.name}<small>${t.role}</small></cite></figcaption>
       </div>
-    </figure>`).join("");
+    </figure>`).join(""));
 
-  $("#galleryList").innerHTML = gallery.map((g, i) => `
+  fill("#galleryList", gallery.map((g, i) => `
     <button class="gallery__item reveal-zoom" style="--d:${i * 0.08}s" data-index="${i}" aria-label="Open image: ${g.alt}">
       <img src="${img(g.id, 500)}" alt="${g.alt}" loading="lazy" />
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>
-    </button>`).join("");
+    </button>`).join(""));
 
   $("#year").textContent = new Date().getFullYear();
 
@@ -134,20 +135,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const start = () => {
     if (started) return;
     started = true;
-    preloader.classList.add("done");
+    preloader?.classList.add("done");
     document.body.classList.remove("is-loading");
     setTimeout(() => {
       document.body.classList.add("loaded");
-      $$(".hero [data-count]").forEach(runCounter);
+      $$(".hero [data-count], .page-hero [data-count], .pf-hero [data-count]").forEach(runCounter);
       startHero();
     }, reduceMotion ? 0 : 450);
-    setTimeout(() => preloader.remove(), 1600);
+    setTimeout(() => preloader?.remove(), 1600);
   };
-  const minShow = reduceMotion ? 0 : 1300;
+  const minShow = reduceMotion || !preloader ? 0 : 1300;
   const t0 = performance.now();
   const onReady = () => setTimeout(start, Math.max(0, minShow - (performance.now() - t0)));
-  const heroFirst = $(".hero__slide img");
-  if (heroFirst.complete) onReady(); else heroFirst.addEventListener("load", onReady, { once: true });
+  const heroFirst = $(".hero__slide img, .page-hero img");
+  if (!heroFirst || heroFirst.complete) onReady(); else heroFirst.addEventListener("load", onReady, { once: true });
   setTimeout(start, 3500); // never block the page on a slow image
 
   /* ---------- Scroll reveal ----------
@@ -157,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealTargets = new Map(); // observed element -> elements to reveal
   const reveal = el => {
     el.classList.add("in");
-    if (el.classList.contains("service")) setTimeout(() => el.classList.add("settled"), 1500);
+    if (el.matches(".service, .addon, .ct-card")) setTimeout(() => el.classList.add("settled"), 1500);
     $$("[data-count]", el).forEach(runCounter);
   };
   const io = new IntersectionObserver(entries => {
@@ -199,8 +200,10 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
 
-  /* ---------- Hero slider ---------- */
+  /* ---------- Hero slider (home page only) ---------- */
   const hero = $(".hero");
+  let startHero = () => {}, closeSpots = () => {}, resumeHero = () => {};
+  if (hero) {
   const slides = $$(".hero__slide");
   const heroProgress = $("#heroProgress");
   const HERO_MS = 6500;
@@ -237,8 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
     heroLeft -= performance.now() - heroStart;
     heroProgress.style.animationPlayState = "paused";
   };
-  const resumeHero = () => { if (autoplay && heroTimer === null && !$(".hotspot.open")) scheduleHero(); };
-  function startHero() { autoplay = !reduceMotion; restartHero(); }
+  resumeHero = () => { if (autoplay && heroTimer === null && !$(".hotspot.open")) scheduleHero(); };
+  startHero = () => { autoplay = !reduceMotion; restartHero(); };
   $("#heroNext").addEventListener("click", () => goHero(heroIdx + 1));
   $("#heroPrev").addEventListener("click", () => goHero(heroIdx - 1));
 
@@ -314,9 +317,9 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".hotspot__dot", spot).setAttribute("aria-expanded", open);
     if (open) { hint.classList.add("gone"); pauseHero(); } else resumeHero();
   };
-  function closeSpots(except) {
+  closeSpots = except => {
     $$(".hotspot.open").forEach(s => { if (s !== except) { s.classList.remove("open"); $(".hotspot__dot", s).setAttribute("aria-expanded", "false"); } });
-  }
+  };
   $$(".hotspot").forEach(spot => {
     if (finePointer) {
       spot.addEventListener("mouseenter", () => setSpot(spot, true));
@@ -327,14 +330,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", e => {
     if (!e.target.closest(".hotspot") && $(".hotspot.open")) { closeSpots(); resumeHero(); }
   });
-
-  /* ---------- Touch "spotlight": the card crossing the middle of the screen gets the hover look ---------- */
-  if (!finePointer) {
-    const spotIO = new IntersectionObserver(entries => {
-      entries.forEach(e => e.target.classList.toggle("spot", e.isIntersecting));
-    }, { rootMargin: "-38% 0px -38% 0px" });
-    $$(".service, .step, .value, .feature, .testimonial").forEach(el => spotIO.observe(el));
-  }
 
   /* ---------- Hero mouse-depth parallax (desktop) ---------- */
   if (finePointer && !reduceMotion) {
@@ -353,9 +348,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     hero.addEventListener("mouseleave", () => aim(0, 0));
   }
+  } // end home hero
+
+  /* ---------- Touch "spotlight": the card crossing the middle of the screen gets the hover look ---------- */
+  if (!finePointer) {
+    const spotIO = new IntersectionObserver(entries => {
+      entries.forEach(e => e.target.classList.toggle("spot", e.isIntersecting));
+    }, { rootMargin: "-38% 0px -38% 0px" });
+    $$(".service, .step, .value, .feature, .testimonial, .addon, .project, .pj-next, .ct-card, .journey__card").forEach(el => spotIO.observe(el));
+  }
+
 
   /* ---------- Testimonials carousel ---------- */
-  const track = $("#tTrack"), cards = $$(".testimonial", track), dotsWrap = $("#tDots");
+  const track = $("#tTrack");
+  if (track) {
+  const cards = $$(".testimonial", track), dotsWrap = $("#tDots");
   let tIdx = 0, tTimer;
   const perView = () => (window.innerWidth <= 640 ? 1 : window.innerWidth <= 1100 ? 2 : 3);
   const maxIdx = () => Math.max(0, cards.length - perView());
@@ -389,6 +396,56 @@ document.addEventListener("DOMContentLoaded", () => {
     resizeT = setTimeout(() => { if (tIdx > maxIdx()) tIdx = maxIdx(); renderDots(); goT(tIdx); }, 150);
   });
   renderDots(); goT(0);
+  }
+
+  /* ---------- Before / after sliders ---------- */
+  $$(".ba").forEach(ba => {
+    const knob = $(".ba__knob", ba);
+    let dragging = false, touched = false;
+    ba.dataset.cursor = "Drag";
+    const set = pct => {
+      pct = Math.max(0, Math.min(100, pct));
+      ba.style.setProperty("--pos", pct + "%");
+      knob.setAttribute("aria-valuenow", Math.round(pct));
+      ba.classList.toggle("hide-before", pct < 14);
+      ba.classList.toggle("hide-after", pct > 86);
+    };
+    const fromEvent = e => { const r = ba.getBoundingClientRect(); return ((e.clientX - r.left) / r.width) * 100; };
+    ba.addEventListener("pointerdown", e => {
+      dragging = touched = true;
+      ba.setPointerCapture(e.pointerId);
+      ba.classList.add("dragging");
+      set(fromEvent(e));
+    });
+    ba.addEventListener("pointermove", e => { if (dragging) set(fromEvent(e)); });
+    const end = () => { dragging = false; ba.classList.remove("dragging"); };
+    ba.addEventListener("pointerup", end);
+    ba.addEventListener("pointercancel", end);
+    knob.addEventListener("keydown", e => {
+      const now = parseFloat(knob.getAttribute("aria-valuenow")), step = e.shiftKey ? 10 : 4;
+      const to = { ArrowLeft: now - step, ArrowDown: now - step, ArrowRight: now + step, ArrowUp: now + step, Home: 0, End: 100 }[e.key];
+      if (to === undefined) return;
+      e.preventDefault();
+      touched = true;
+      set(to);
+    });
+    // First time it scrolls into view, sweep once so people see it can be dragged
+    if (reduceMotion) return;
+    const hintIO = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      hintIO.disconnect();
+      const keys = [50, 22, 78, 50], dur = 2200, t0 = performance.now() + 500;
+      const ease = t => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+      const tick = now => {
+        if (touched) return;
+        const t = Math.min(Math.max((now - t0) / dur, 0), 1), seg = Math.min(Math.floor(t * 3), 2), local = t * 3 - seg;
+        set(keys[seg] + (keys[seg + 1] - keys[seg]) * ease(local));
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.6 });
+    hintIO.observe(ba);
+  });
 
   /* ---------- Saved ideas (wishlist) ---------- */
   const savedCount = $("#savedCount");
@@ -430,12 +487,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const b = e.target.closest("[data-book]");
     if (!b) return;
     e.preventDefault();
+    const inlineForm = $("#bookingForm");
+    if (inlineForm) {
+      closeMenu();
+      const pick = b.dataset.service && $$("input[name=service]", inlineForm).find(r => r.value === b.dataset.service);
+      if (pick) pick.checked = true;
+      $("#book").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      return;
+    }
     if (b.dataset.service) $("#serviceSelect").value = b.dataset.service;
     closeMenu();
     openLayer(modal);
     setTimeout(() => $("input", bookForm).focus(), 60);
   });
-  [modal, $("#lightbox")].forEach(layer => layer.addEventListener("click", e => {
+  [modal, $("#lightbox")].filter(Boolean).forEach(layer => layer.addEventListener("click", e => {
     if (e.target === layer || e.target.closest("[data-close]")) closeLayer(layer);
   }));
   const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
@@ -454,8 +519,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Gallery lightbox ---------- */
   const lb = $("#lightbox"), lbImg = $("#lbImg");
-  let lbIdx = 0;
-  const showLb = i => {
+  let lbIdx = 0, showLb = () => {};
+  if (lb) {
+  showLb = i => {
     lbIdx = (i + gallery.length) % gallery.length;
     lbImg.style.opacity = 0;
     lbImg.onload = () => { lbImg.style.opacity = 1; };
@@ -470,21 +536,30 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   $("#lbNext").addEventListener("click", () => showLb(lbIdx + 1));
   $("#lbPrev").addEventListener("click", () => showLb(lbIdx - 1));
+  }
 
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
       closeSpots();
       resumeHero();
       if (!modal.hidden) closeLayer(modal);
-      if (!lb.hidden) closeLayer(lb);
+      if (lb && !lb.hidden) closeLayer(lb);
       closeMenu();
     }
-    if (!lb.hidden && e.key === "ArrowRight") showLb(lbIdx + 1);
-    if (!lb.hidden && e.key === "ArrowLeft") showLb(lbIdx - 1);
+    if (lb && !lb.hidden && e.key === "ArrowRight") showLb(lbIdx + 1);
+    if (lb && !lb.hidden && e.key === "ArrowLeft") showLb(lbIdx - 1);
   });
 
+  /* ---------- FAQ accordion (one open at a time) ---------- */
+  $$(".faq__q").forEach(q => q.addEventListener("click", () => {
+    const item = q.parentElement, open = !item.classList.contains("open");
+    $$(".faq__item.open").forEach(i => { i.classList.remove("open"); $(".faq__q", i).setAttribute("aria-expanded", "false"); });
+    item.classList.toggle("open", open);
+    q.setAttribute("aria-expanded", open);
+  }));
+
   /* ---------- Newsletter ---------- */
-  $("#newsletterForm").addEventListener("submit", e => {
+  $("#newsletterForm")?.addEventListener("submit", e => {
     e.preventDefault();
     const input = $("input", e.target);
     input.classList.remove("invalid");
@@ -547,7 +622,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     follow();
     document.addEventListener("mouseover", e => {
-      cursor.classList.toggle("hover", !!e.target.closest("a, button, .gallery__item, .space, input, select, textarea"));
+      const labelled = e.target.closest("[data-cursor]");
+      cursor.classList.toggle("label", !!labelled);
+      cursor.dataset.label = labelled ? labelled.dataset.cursor : "";
+      cursor.classList.toggle("hover", !labelled && !!e.target.closest("a, button, .gallery__item, .space, input, select, textarea"));
     });
 
     $$(".service").forEach(card => {
