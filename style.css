@@ -187,7 +187,7 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 }
 .nav__link:hover::after, .nav__link.active::after { transform: scaleX(1); }
 .chev { width: 14px; height: 14px; transition: transform .3s var(--ease); }
-.nav__head { display: none; }
+.nav__head, .nav__foot { display: none; }
 
 .has-dropdown { position: relative; }
 .dropdown {
@@ -688,7 +688,22 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
     background: var(--bg); padding: 20px 24px; overflow-y: auto;
     transform: translateX(-100%); transition: transform .45s var(--ease-out);
   }
-  .nav.open { transform: none; }
+  .nav.open { transform: none; box-shadow: 20px 0 60px -20px rgba(42, 36, 32, .35); }
+  /* backdrop-filter would trap the fixed drawer inside the header, so use a solid bar here,
+     and lift the header above the overlay while the menu is open */
+  .header { backdrop-filter: none; background: rgba(250, 248, 245, .98); }
+  body.menu-open .header { z-index: 160; }
+  .nav { display: flex; flex-direction: column; }
+  .nav__list > li { opacity: 0; transform: translateX(-16px); transition: opacity .4s var(--ease-out), transform .5s var(--ease-out); }
+  .nav.open .nav__list > li { opacity: 1; transform: none; }
+  .nav.open .nav__list > li:nth-child(2) { transition-delay: .05s; }
+  .nav.open .nav__list > li:nth-child(3) { transition-delay: .1s; }
+  .nav.open .nav__list > li:nth-child(4) { transition-delay: .15s; }
+  .nav.open .nav__list > li:nth-child(5) { transition-delay: .2s; }
+  .nav.open .nav__list > li:nth-child(6) { transition-delay: .25s; }
+  .nav__foot { display: grid; gap: 10px; margin-top: auto; padding-top: 28px; }
+  .nav__foot .btn { justify-content: center; }
+  .nav__foot p { font-size: .76rem; color: var(--muted); text-align: center; }
   .nav__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
   .nav__list { flex-direction: column; align-items: stretch; gap: 0; }
   .nav__list > li { border-bottom: 1px solid var(--line); }

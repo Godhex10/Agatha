@@ -500,8 +500,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Mobile menu, dropdowns, search ---------- */
   const nav = $("#nav"), overlay = $("#overlay"), toggle = $("#menuToggle");
-  const openMenu = () => { nav.classList.add("open"); overlay.classList.add("show"); toggle.setAttribute("aria-expanded", "true"); };
-  function closeMenu() { nav.classList.remove("open"); overlay.classList.remove("show"); toggle.setAttribute("aria-expanded", "false"); }
+  const openMenu = () => {
+    nav.classList.add("open"); overlay.classList.add("show");
+    document.body.classList.add("menu-open", "no-scroll");
+    toggle.setAttribute("aria-expanded", "true");
+    setTimeout(() => $("#menuClose").focus(), 50);
+  };
+  function closeMenu() {
+    if (!nav.classList.contains("open")) return;
+    nav.classList.remove("open"); overlay.classList.remove("show");
+    document.body.classList.remove("menu-open", "no-scroll");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+  window.addEventListener("resize", () => { if (window.innerWidth > 980) closeMenu(); });
   toggle.addEventListener("click", openMenu);
   $("#menuClose").addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
